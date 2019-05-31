@@ -1,5 +1,8 @@
+$(document).on('turbolinks:load', function() {
+
+
 function buildHTML(message){
-  if ( message.image ) {
+  var imagehtml = message.image == null ? "" : `<img src="${message.image}">`
     var html =
      `<div class="message" data-message-id=${message.id}>
         <div class="upper-message">
@@ -14,32 +17,14 @@ function buildHTML(message){
           <p class="lower-message__content">
             ${message.content}
           </p>
-        </div>
-        <asset_path src=${message.image} >
-      </div>`
-    return html;
-  } else {
-    var html =
-     `<div class="message" data-message-id=${message.id}>
-        <div class="upper-message">
-          <div class="upper-message__user-name">
-            ${message.user_name}
-          </div>
-          <div class="upper-message__date">
-            ${message.date}
-          </div>
-        </div>
-        <div class="lower-message">
-          <p class="lower-message__content">
-            ${message.content}
-          </p>
+            ${imagehtml}
         </div>
       </div>`
     return html;
-  };
 }
-$('.js-form').on('submit', function(){
+$('#new_message').on('submit', function(e){
 e.preventDefault();
+console.log("test")
 var formData = new FormData(this);
 var url = $(this).attr('action')
 $.ajax({
