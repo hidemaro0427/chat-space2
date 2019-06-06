@@ -68,7 +68,6 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry-rails'
-gem 'ffi', '= 1.9.21'
 
 group :production do
   gem 'unicorn', '5.4.1'
