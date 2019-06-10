@@ -5,10 +5,14 @@ class MessagesController < ApplicationController
     @message = Message.new
     @messages = @group.messages.includes(:user)
   end
-  def create
 
+
+  def create
+    # binding.pry
     @message = @group.messages.new(message_params)
+    # binding.pry
     if @message.save
+      # binding.pry
       respond_to do |format|
       format.html
       format.json

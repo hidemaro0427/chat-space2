@@ -28,6 +28,7 @@ $('#new_message').on('submit', function(e){
 e.preventDefault();
 var formData = new FormData(this);
 var url = $(this).attr('action')
+console.log(url)
 $.ajax({
   url: url,
   type: "POST",
@@ -37,6 +38,7 @@ $.ajax({
   contentType: false
 })
  .done(function(data){
+   console.log(data)
    var html = buildHTML(data);
    $('.messages').append(html);
    $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');   
@@ -67,5 +69,5 @@ var reloadMessages = function() {
     })
     
   };
-  setInterval(reloadMessages,5000);
+  // setInterval(reloadMessages,5000);
 });
