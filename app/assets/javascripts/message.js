@@ -28,7 +28,6 @@ $('#new_message').on('submit', function(e){
 e.preventDefault();
 var formData = new FormData(this);
 var url = $(this).attr('action')
-console.log(url)
 $.ajax({
   url: url,
   type: "POST",
@@ -69,5 +68,5 @@ var reloadMessages = function() {
     })
     
   };
-  // setInterval(reloadMessages,5000);
+  setInterval(reloadMessages,5000);
 });
